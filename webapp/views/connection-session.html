@@ -1,0 +1,78 @@
+<div class="conses_tab">
+    <button class="tablinks" onclick="openTab(event, 'administration_id')" id="conses_initbutton">Administration</button>
+    <button class="tablinks" onclick="openTab(event, 'peek_id')">Peek/Receive</button>
+    <button class="tablinks" onclick="openTab(event, 'send_id')">Publish/Send</button>
+</div>
+
+<div id="administration_id" class="conses_tabcontent">
+    <h3><srtong>Connection name: </srtong><span id="connectionName"></span></h3>
+    <h3>Topic name: <span id="conses_topic-name"></span></h3>
+    <h3 id="conses_admintitle">Retreiving subscriptions...</h3>
+    <form>
+        <input id="conses_substext" type="text" placeholder="name of the new subscription">
+        <button id="conses_buttoncreate" onclick="createSubscription()" disabled>Create</button>
+        <span>Right click on a subscription to delete</span>
+    </form>
+    <div class="row" id="">
+        <div class="column">
+            <ul id="conses_listsubs"></ul>
+        </div>
+        <div class="column">
+            <h3>Properties  <button onclick="updateConfig(event)">Update properties</button></h3>
+            <textarea rows="16" cols="60" id="conses_subsconfig"></textarea>
+        </div>
+    </div>
+</div>
+
+<div id="peek_id" class="conses_tabcontent">
+    <select id="conses_subscriptions">
+        <option>Retreiving subscriptions...</option>
+    </select>
+
+    <div>
+        <strong>Total msjs: </strong><span id="conses_total"></span>&nbsp;
+        <strong>Active msjs: </strong><span id="conses_totalactive"></span>&nbsp;
+        <strong>DeadLetter msjs: </strong><span id="conses_totaldl"></span>
+    </div>
+
+    <div>
+        <button onclick="peekMessages(false)">Peek principal</button>
+        <button onclick="peekMessages(true)">Peek dead letter</button>
+        <button onclick="peekMessages(false)">Receive principal</button>
+        <button onclick="peekMessages(true)">Receive dead letter</button>
+    </div>
+    <div class="row">
+        <div class="column" style="width: 50%;">
+            <table id="conses_table_message" style="border: 1px solid;" class="table_message">
+                <thead>
+                    <tr>
+                        <th>N</th>
+                        <th>DateTimeUtc</th>
+                        <th>view</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                </tbody>
+            </table>
+        </div>
+        <div class="column" style="width: 50%;">
+            <textarea id="conses_textarea_message" rows="20" readonly>
+    
+            </textarea>
+        </div>
+
+    </div>
+    
+    
+
+</div>
+
+<div id="send_id" class="conses_tabcontent">
+    <h3>Message to publish/send</h3>
+    <button onclick="publish(event)">Send!</button>
+    <h4>Application Properties (JSON format)</h4>
+    <textarea id="conses_appprops" rows="10"></textarea>
+    <h4>Message (JSON format)</h4>
+    <textarea id="conses_messagebody" rows="20"></textarea>
+</div>

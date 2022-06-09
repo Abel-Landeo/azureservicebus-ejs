@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Azure servicebus explorer</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div class="header">
+      <h2>Azure Service Bus Explorer (ElectronJS)</h2>
+    </div>
+    <div class="row">
+      <div class="column side">
+        <h3>
+          Connections (<a href="#" onclick="listConnections()">refresh</a>)
+          (<a href="#" onclick="loadView('new-connection')">new</a>)
+        </h3>
+        <div class="vertical-menu" id="main_menu">
+          <a href="#" class="active">Conn1</a>
+        </div>
+      </div>      
+      <div class="column middle" id="main_content">
+        
+      </div>     
+      
+    </div>
+    <script src="renderer.js"></script>
+    <script src="views/new-connection.js"></script>
+    <script src="views/connection-session.js"></script>
+  </body>
+</html>
